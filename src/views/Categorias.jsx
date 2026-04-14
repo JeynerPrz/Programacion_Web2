@@ -1,17 +1,15 @@
-import { useEffect, useState } from 'react'
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import React, { useEffect, useState } from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
-const Categorias = () => {
-
-  return (
-    <Container className="mt-3">
-      <Row className="align-items-center">
-        <Col>
-          <h2 className="mb-0 use-full me-2">Categorías</h2>
-        </Col>
-      </Row>
-    </Container>
-  );
-};
+const Categorias = () => (
+  <Container className="mt-3">
+    <Row>
+      <Col>
+        <h2><i className="bi-bookmark-fill me-2"></i>Categorías</h2>
+        <p>Aquí va la vista de gestión de categorías.</p>
+      </Col>
+    </Row>
+  </Container>
+);
 
 export default Categorias;

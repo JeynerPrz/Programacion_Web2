@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Container, Nav, Navbar, Offcanvas } from "react-bootstrap";
-import logo from "../../assets/logo.png";
 import { supabase } from "../../database/supabaseconfig";
+import logo from "../../assets/logo.png";
 
 const Encabezado = () => {
-  const [mostrarMenu, setMostrarMenu] = useState(false);
+
+const [mostrarMenu, setMostrarMenu] = useState(false);
   const navigate = useNavigate();
   const location = useLocation(); // Para detectar la ruta actual
 
@@ -103,14 +104,15 @@ const Encabezado = () => {
             <hr />
 
             {/* Ícono cerrar sesión en barra superior */}
-            {!mostrarMenu ? null : (
+            
               <Nav.Link
                 onClick={cerrarSesion}
-                className={mostrarMenu ? "color-texto-marca" : "text-white"}
+                className="text-white"
+
               >
                 <i className="bi-box-arrow-right me-2"></i>
+                <strong> Cerrar sesión</strong>
               </Nav.Link>
-            )}
 
             <hr />
           </Nav>

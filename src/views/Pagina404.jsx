@@ -1,17 +1,15 @@
-import { useEffect, useState } from 'react'
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import React, { useEffect, useState } from "react";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
-const Pagina404 = () => {
-
-  return (
-    <Container className="mt-3">
-      <Row className="align-items-center">
-        <Col>
-          <h2 className="mb-0 use-full me-2">Página no encontrada</h2>
-        </Col>
-      </Row>
-    </Container>
-  );
-};
+const Pagina404 = () => (
+  <Container className="mt-3 text-center">
+    <Row>
+      <Col>
+        <h2>404 - Página no encontrada</h2>
+        <p>Por favor, regresa al inicio.</p>
+      </Col>
+    </Row>
+  </Container>
+);
 
 export default Pagina404;
