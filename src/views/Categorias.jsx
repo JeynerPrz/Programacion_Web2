@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { supabase } from "../supabaseClient"; // ajusta ruta
+import { supabase } from "../database/supabaseconfig";
 
 const Categorias = () => {
 
@@ -65,7 +65,7 @@ const Categorias = () => {
     }
   };
 
-  // Ejecutar al iniciar
+  // 🔥 useEffect (LO QUE TE PIDIÓ EL PROFE)
   useEffect(() => {
     cargarCategorias();
   }, []);
@@ -141,7 +141,17 @@ const Categorias = () => {
 
       <Row>
         <Col>
-          <p>Aquí va la tabla de categorías...</p>
+          {cargando ? (
+            <p>Cargando categorías...</p>
+          ) : (
+            <ul>
+              {categorias.map((cat) => (
+                <li key={cat.id_categoria}>
+                  {cat.nombre_categoria} - {cat.descripcion_categoria}
+                </li>
+              ))}
+            </ul>
+          )}
         </Col>
       </Row>
     </Container>
