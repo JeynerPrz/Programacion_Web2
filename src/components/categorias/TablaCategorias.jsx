@@ -21,34 +21,44 @@ const TablaCategorias = ({
   return (
     <>
       {loading ? (
-        <div className="text-center my-4">
-          <Spinner animation="border" />
+        <div className="text-center">
+          <h4>Cargando categorías...</h4>
+          <Spinner animation="border" variant="success" role="status" />
         </div>
       ) : (
-        <Table striped bordered hover responsive>
+        <Table striped borderless hover responsive size="sm">
           <thead>
             <tr>
-              <th>#</th>
+              <th>ID</th>
               <th>Nombre</th>
-              <th>Acciones</th>
+              <th className="d-none d-md-table-cell">Descripción</th>
+              <th className="text-center">Acciones</th>
             </tr>
           </thead>
+
           <tbody>
-            {categorias.map((categoria, index) => (
-              <tr key={categoria.id || index}>
-                <td>{index + 1}</td>
-                <td>{categoria.nombre}</td>
-                <td>
-                  <Button 
-                    variant="warning" 
-                    className="me-2"
+            {categorias.map((categoria) => (
+              <tr key={categoria.id_categoria}>
+                <td>{categoria.id_categoria}</td>
+                <td>{categoria.nombre_categoria}</td>
+
+                <td className="d-none d-md-table-cell">
+                  {categoria.descripcion_categoria}
+                </td>
+
+                <td className="text-center">
+                  <Button
+                    variant="outline-warning"
+                    size="sm"
+                    className="m-1"
                     onClick={() => abrirModalEdicion(categoria)}
                   >
                     <i className="bi bi-pencil"></i>
                   </Button>
 
-                  <Button 
-                    variant="danger"
+                  <Button
+                    variant="outline-danger"
+                    size="sm"
                     onClick={() => abrirModalEliminacion(categoria)}
                   >
                     <i className="bi bi-trash"></i>
